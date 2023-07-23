@@ -1,15 +1,10 @@
-import React, { useEffect, useState } from 'react'
-import DoubleArrowSelect from './icons/DoubleArrowSelect'
-import DashboardIcon from './icons/DashboardIcon'
-import SettingsIcon from './icons/SettingsIcon'
+import React, { useState } from 'react'
 import Search from './Search'
 import Share from './Share'
-import ProfilePic from './ProfilePic'
 import Chat from './Chat'
 import LeftNav from './LeftNav'
 import MenuIcon from './icons/MenuIcon'
 import SendIcon from './icons/SendIcon'
-import SearchIcon from './icons/SearchIcon'
 
 type LayoutProps = {
     children: React.ReactNode
