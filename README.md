@@ -1,46 +1,65 @@
-# Getting Started with Create React App
+# dataQ
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![Logo](https://verdant-lollipop-189da5.netlify.app/dataQ-2.svg)
 
-## Available Scripts
+## Description
 
-In the project directory, you can run:
+The project is a web-based application designed to run SQL queries and display the results of the queries within the application. It provides users with a space to input SQL queries, and upon execution, the application showcases the corresponding table of data as the result. This project serves as a dummy application, and no backend, query engine, or syntax validation is required.
 
-### `npm start`
+The application's frontend is implemented using a JavaScript framework, React, to ensure a responsive and efficient user experience. Users, especially data analysts, will find this application useful for quick SQL query execution and data visualization. While the application does not require a live connection to a database, it offers more than one pre-defined query along with its corresponding data table, allowing users to toggle between different queries and view the data associated with each query.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+The project prioritizes simplicity and user-friendliness, aiming to provide a smooth user experience while showcasing fundamental coding practices and performance optimization.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Overall, this application represents a frontend engineering challenge that demonstrates the developer's proficiency in designing, building, and optimizing web-based applications with a focus on usability and performance.
 
-### `npm test`
+## Table of Contents
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- [dataQ](#project-title)
+- [Description](#description)
+- [Table of Contents](#table-of-contents)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
 
-### `npm run build`
+## Installation
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+To run the project locally, follow these steps:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. Clone the repository: `git clone https://github.com/Sahil004/dataq.git`
+2. Navigate to the project directory: `cd dataq`
+3. Install dependencies: `npm install`
+3. Run dev server: `npm start`
+3. Production build `npm run build`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Running the Application
 
-### `npm run eject`
+Once the dependencies are installed, start the development server with the following command:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+The application will be accessible at `http://localhost:3000` in your web browser.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Usage
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+To use dataQ, follow these steps:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+1. Enter your SQL query in the provided space.
+2. Click on the "Execute" button to run the query.
+3. The result of the query will be displayed as a table within the application.
 
-## Learn More
+## Features
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- User-friendly interface for SQL query input and result display.
+- Multiple pre-defined sample queries with corresponding data tables for testing.
+- Toggle between different queries and view data associated with each query.
+- Responsive design for optimal user experience on various devices.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Technologies Used
+
+- React
+- TypeScript
+- Tailwind
+- HTML
+- CSS
