@@ -25,7 +25,7 @@ WHERE AGE > 18;
 
   {
     name: 'Custom Query',
-    query: ` type your test query...`,
+    query: `type your test query...`,
     loadFile: './json/customers.json'
   },
 ]
@@ -102,8 +102,8 @@ function App() {
           <SQLCodeBlock sqlCode={tabs[selectedTab].query}>
             <Button onClick={getData}>Run Query</Button>
           </SQLCodeBlock>
-          <div className='flex flex-1 bg-white w-full h-full border-t-2 border-t-line-grey min-h-[400px] justify-center items-center p-6'>
-            {data? <DataGrid className='w-full' {...data} /> :'Run query to get data...'}
+          <div className='flex flex-1 bg-white w-full h-full border-t-2 border-t-line-grey min-h-[400px] justify-center items-center'>
+            {data? <DataGrid className='max-w-[400px] w-full lg:max-w-[800px]' {...data} /> :'Run query to get data...'}
           </div>
         {/* </div> */}
       </div>
