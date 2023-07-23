@@ -33,7 +33,7 @@ WHERE AGE > 18;
 const DataGrid = lazy(() => import('react-data-grid'))
 
 function App() {
-  const [tabs, setTabs] = useState(initList)
+  const [tabs] = useState(initList)
   const [selectedTab, setSelectedTab] = useState(0)
   const [data, setData] = useState<null | {
     columns: any[]
