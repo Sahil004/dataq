@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import DoubleArrowSelect from './icons/DoubleArrowSelect'
 import DashboardIcon from './icons/DashboardIcon'
 import SettingsIcon from './icons/SettingsIcon'
@@ -6,74 +6,40 @@ import Search from './Search'
 import Share from './Share'
 import ProfilePic from './ProfilePic'
 import Chat from './Chat'
+import LeftNav from './LeftNav'
+import MenuIcon from './icons/MenuIcon'
+import SendIcon from './icons/SendIcon'
+import SearchIcon from './icons/SearchIcon'
 
 type LayoutProps = {
     children: React.ReactNode
 }
 
-const dataSources = ['Atlan Dev', 'Atlan Prod']
+type MobileToggle = 'leftnav' | 'chat' | ''
 
 function Layout({
     children
 }: LayoutProps) {
-    const [isSelectOpen, setIsSelectOpen] = useState(false);
-    const [selectedTab, setSelectedTab] = useState(dataSources[0])
+    const [show, setshow] = useState<MobileToggle>('')
+    
   return (
     <div className='min-h-[100%] flex flex-1'>
-        <div className='left-nav hidden lg:flex flex-col p-8 justify-between items-start w-full max-w-[350px] lg:border-r-2 border-r-line-grey text-2xl'>
-            <div className='flex flex-1 flex-col w-full'>
-                <img className='w-[141px] mb-11' src={'/dataQ-2.svg'} alt='logo' />
-                <div className='flex relative justify-between h-20 border-2 rounded-lg bg-white px-2.5 py-1.5 border-line-grey items-center mb-12 cursor-pointer' onClick={() => {
-                    setIsSelectOpen(!isSelectOpen);
-                }}>
-                    <div className='flex items-center'>
-                        <div className='bg-[#F7F7F7] w-14 h-14 rounded-lg px-2.5 flex justify-center items-center'>
-                            <img className=' max-w-full' src='/assets/atlan.png' alt='atlan' />
-                        </div>
-                        <div className='ml-4'>
-                            {selectedTab}
-                        </div>
-                    </div>
-                    <div className='mr-3'><DoubleArrowSelect /></div>
-                    <div className='absolute left-0 bottom-1 pa'>
-                        {isSelectOpen && <select value={selectedTab} onChange={(e) => setSelectedTab(e.target.value)} size={isSelectOpen ? dataSources.length : 1}>
-                            {
-                                React.Children.toArray(
-                                    dataSources.map(res => <option value={res}>{res}</option>)
-                                )
-                            }
-                        </select>}
-                    </div>
-                </div>
-                {
-                    [{
-                        icon: <DashboardIcon />,
-                        text: 'Dashboard',
-                        active: true
-                    },{
-                        icon: <SettingsIcon />,
-                        text: 'Settings'
-                    }].map((res) => (
-                        <div className='flex items-center mb-7 cursor-pointer'>
-                            {res.icon}
-                            <div className='ml-5 text-2xl'>{res.text}</div>
-                        </div>
-                    ))
-                }
-            </div>
-            <div className='flex w-full items-center cursor-pointer'>
-                <ProfilePic src='/assets/user.png' />
-                <div className='ml-5'>
-                    <div className='text-lg flex'>Sahil Singh</div>
-                    <div className='text-sm text-[#535353]'>sahilkrsingh004@gmail.com</div>
-                </div>
-            </div>
+        <div className='left-nav hidden lg:flex w-full max-w-[350px] lg:border-r-2 border-r-line-grey'>
+            <LeftNav />
         </div>
         <div className='center-and-right-content flex-1 flex-col'>
             <div className='top-nav h-[70px] flex lg:border-b-2 border-b-line-grey'>
                 <div className='px-14 hidden lg:flex w-full flex-1 justify-between items-center'>
                     <Search />
                     <Share />
+                </div>
+                <div className='flex justify-between items-center lg:hidden py-2.5 bg-white px-4 w-full'>
+                    <div className='max-w-[100px]' onClick={() => setshow('leftnav')}><MenuIcon /></div>
+                    <img className='w-[100px]' src={'/dataQ-2.svg'} alt='logo' />
+                    <div className='flex'>
+                        <div className='mr-2'><Search /></div>
+                        <div className='mr-2' onClick={() => setshow('chat')}><SendIcon width={25} height={25} /></div>
+                    </div>
                 </div>
             </div>
             <div className='editor-and-chat flex flex-1'>
@@ -91,6 +57,24 @@ function Layout({
                 </div>
             </div>
         </div>
+        {show && <div className='fixed block lg:hidden top-0 left-0 w-full bg-black/70 h-full z-50 pt-[70px]' onClick={(e) => {
+            e.stopPropagation()
+            setshow('')
+        }}>
+            <style>
+                {`
+                    body {
+                        overflow: hidden
+                    }
+                `}
+            </style>
+            <div className='bg-white h-full flex' onClick={(e) => e.stopPropagation()}>
+                {show === 'leftnav' && <LeftNav />}
+                {show === 'chat' && <div id='chat-wrap-1' className=' overflow-y-auto' style={{
+                    height: `${window.innerHeight - 70}px`
+                }}><Chat /></div>}
+            </div>
+        </div>}
     </div>
   )
 }

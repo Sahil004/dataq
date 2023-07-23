@@ -54,8 +54,12 @@ function Chat() {
 
     const resetScroll = () => {
         let objDiv = document.getElementById("chat-wrap");
+        let objDiv1 = document.getElementById("chat-wrap-1");
         if (objDiv) {
             objDiv.scrollTop = objDiv.scrollHeight + 200;
+        }
+        if (objDiv1) {
+            objDiv1.scrollTop = objDiv1.scrollHeight + 200;
         }
     }
 
@@ -69,7 +73,7 @@ function Chat() {
             {/* <div className='flex h-14 bg-white px-3 fixed top-[70x] right-0 w-[418px]'>
                 
             </div> */}
-            <div className='w-full flex flex-1 bg-[#F6F8FC] flex-col justify-end px-3 pb-[70px] pt-[126px]'>
+            <div className='w-full flex flex-1 bg-[#F6F8FC] flex-col justify-end px-3 pb-[70px] lg:pt-[126px]'>
                 {
                     React.Children.toArray(
                         chat.map((res) => (

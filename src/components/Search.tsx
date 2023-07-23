@@ -14,7 +14,7 @@ function Search() {
         })
       }}>
           <SearchIcon />
-          <div className='ml-6 text-lg text-[#535353]'>
+          <div className='ml-6 hidden lg:block text-lg text-[#535353]'>
               Search for anything...
           </div>
       </div>

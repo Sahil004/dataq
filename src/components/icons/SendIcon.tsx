@@ -1,6 +1,6 @@
 import React from 'react'
 
-function SendIcon() {
+function SendIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -8,6 +8,7 @@ function SendIcon() {
       height="17"
       fill="none"
       viewBox="0 0 17 17"
+      {...props}
     >
       <path
         stroke="#076FFE"
