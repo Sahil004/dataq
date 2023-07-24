@@ -55,6 +55,10 @@ To use dataQ, follow these steps:
 - Multiple pre-defined sample queries with corresponding data tables for testing.
 - Toggle between different queries and view data associated with each query.
 - Responsive design for optimal user experience on various devices.
+- **Performance Optimization**: dataQ implements performance optimization techniques to ensure faster load times and smoother user interactions. Some of the optimization strategies include:
+  - **Code Splitting**: The application uses code splitting to divide the JavaScript bundle into smaller chunks. This allows the application to load only the necessary code for each page, reducing the initial load time.
+  - **Lazy Loading**: Non-essential components and resources are lazily loaded, meaning they are fetched only when needed. This helps reduce the initial load time and improve the overall performance of the application.
+  - **Memoization**: dataQ employs memoization techniques to cache the results of expensive computations or API calls. This prevents redundant calculations and improves the responsiveness of the application.
 
 ## Technologies Used
 
