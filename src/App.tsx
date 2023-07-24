@@ -77,10 +77,22 @@ function App() {
             </label>
           </div>
           <SQLCodeBlock sqlCode={tabs[selectedTab].query}>
-            <Button onClick={getData}>Run Query</Button>
+            <div className='inline-block'>
+              <Button onClick={getData}>Run Query</Button>
+            </div>
           </SQLCodeBlock>
-          <div className='flex flex-1 bg-white w-full h-full border-t-2 border-t-line-grey min-h-[400px] justify-center items-center'>
-            {data? <DataGrid className='max-w-[400px] w-full lg:max-w-[800px]' {...data} /> :'Run query to get data...'}
+          <div className='flex flex-1 bg-white w-full h-full border-t-2 border-t-line-grey min-h-[400px] justify-center items-center px-2'>
+            {data? <div>
+              <DataGrid className='max-w-[400px] w-full lg:max-w-[800px]' {...data} /> 
+              <br />
+              <div className='actions flex flex-wrap'>
+                {
+                  ['Export', 'Send Email', 'Send To Analytics', 'Send Email Campaigns', 'Use For Visualization'].map(res => {
+                    return <Button style={{ padding: '2px 10px', margin: '0px 3px 3px 0px' }}>{res}</Button>
+                  }) 
+                }
+              </div>
+            </div>:'Run query to get data...'}
           </div>
         {/* </div> */}
       </div>
