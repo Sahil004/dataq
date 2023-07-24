@@ -58,6 +58,15 @@ function App() {
     setSelectedTab(parseInt(e.target.value))
     setData(null)
   }
+
+  function handleActions(res: string) {
+    let data = window.confirm(`Are you sure you want to perform ${res}?`)
+    if (data) {
+      setTimeout(() => {
+        window.alert(`${res} performed successfully`)
+      }, 1000);
+    }
+  }
   
   return (
     <Layout>
@@ -88,7 +97,7 @@ function App() {
               <div className='actions flex flex-wrap'>
                 {
                   ['Export', 'Send Email', 'Send To Analytics', 'Send Email Campaigns', 'Use For Visualization'].map(res => {
-                    return <Button style={{ padding: '2px 10px', margin: '0px 3px 3px 0px' }}>{res}</Button>
+                    return <Button style={{ padding: '2px 10px', margin: '0px 3px 3px 0px' }} onClick={() => handleActions(res)}>{res}</Button>
                   }) 
                 }
               </div>
