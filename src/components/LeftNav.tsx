@@ -64,4 +64,4 @@ function LeftNav() {
   )
 }
 
-export default LeftNav
+export default React.memo(LeftNav)

@@ -120,4 +120,4 @@ function SQLCodeBlock({ sqlCode, children }: SQLCodeBlockProps) {
   );
 };
 
-export default SQLCodeBlock;
+export default React.memo(SQLCodeBlock);
