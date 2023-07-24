@@ -85,7 +85,7 @@ function Chat() {
                 }
             </div>
             <div className='fixed w-full max-w-[418px] flex items-center px-3 min-h-[70px] bg-white bottom-0 right-0'>
-                <textarea placeholder='type text here...' value={currMessage} onKeyDown={(e) => handleKeyDown(e)} onChange={(e) => setCurrMessage(e.target.value)} className="w-full text-xs text-[#535353] focus:outline-none mr-3 cursor-pointer" />
+                <textarea placeholder='type text here...' value={currMessage} onKeyDown={(e) => handleKeyDown(e)} onChange={(e) => setCurrMessage(e.target.value)} className="w-full text-base text-[#535353] focus:outline-none mr-3 cursor-pointer" />
                 <span className='cursor-pointer' onClick={() => sendMessage()}><SendIcon /></span>
             </div>
         </div>
