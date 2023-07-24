@@ -35,13 +35,13 @@ function SQLCodeBlock({ sqlCode, children }: SQLCodeBlockProps) {
     setEditableCode(sqlCode)
   }, [sqlCode]);
 
-  const handleHiddenTextareaChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+  function handleHiddenTextareaChange(e: React.ChangeEvent<HTMLTextAreaElement>) {
     // console.log('here');
     setEditableCode(highlighted(e.target.value, true));
     // onChange(highlighted(e.target.value, true));
   };
 
-  const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+  function handleKeyDown(e: React.KeyboardEvent<HTMLTextAreaElement>) {
     if (e.key === 'Tab') {
       e.preventDefault();
       const target = e.target as HTMLTextAreaElement;
@@ -66,6 +66,16 @@ function SQLCodeBlock({ sqlCode, children }: SQLCodeBlockProps) {
       }
   };
 
+  function handleWrapClick() {
+    const hiddenTextarea = hiddenTextareaRef.current;
+    if (hiddenTextarea) {
+        hiddenTextarea.focus();
+        const selectionStart = hiddenTextarea.selectionStart;
+        const selectionEnd = hiddenTextarea.selectionEnd;
+        hiddenTextarea.setSelectionRange(selectionStart, selectionEnd);
+    }
+  }
+
   return (
     <>
         <div className="code-container flex">
@@ -79,15 +89,7 @@ function SQLCodeBlock({ sqlCode, children }: SQLCodeBlockProps) {
                 }
             </div>
             <div className='relative flex flex-1'
-                onClick={() => {
-                    const hiddenTextarea = hiddenTextareaRef.current;
-                    if (hiddenTextarea) {
-                        hiddenTextarea.focus();
-                        const selectionStart = hiddenTextarea.selectionStart;
-                        const selectionEnd = hiddenTextarea.selectionEnd;
-                        hiddenTextarea.setSelectionRange(selectionStart, selectionEnd);
-                    }
-                    }}
+                onClick={handleWrapClick}
             >
                 <pre
                     className="rounded-lg text-black cursor-pointer flex-1 flex absolute left-0 top-0 w-full h-full bg-white py-9 pr-14"

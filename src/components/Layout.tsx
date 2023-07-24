@@ -5,6 +5,7 @@ import Chat from './Chat'
 import LeftNav from './LeftNav'
 import MenuIcon from './icons/MenuIcon'
 import SendIcon from './icons/SendIcon'
+import { logoPath } from '../utils/static'
 
 type LayoutProps = {
     children: React.ReactNode
@@ -30,7 +31,7 @@ function Layout({
                 </div>
                 <div className='flex justify-between items-center lg:hidden py-2.5 bg-white px-4 w-full'>
                     <div className='max-w-[100px]' onClick={() => setshow('leftnav')}><MenuIcon /></div>
-                    <img className='w-[100px]' src={'/dataQ-2.svg'} alt='logo' />
+                    <img className='w-[100px]' src={logoPath} alt='logo' />
                     <div className='flex'>
                         <div className='mr-2'><Search /></div>
                         <div className='mr-2' onClick={() => setshow('chat')}><SendIcon width={25} height={25} /></div>

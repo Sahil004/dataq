@@ -13,10 +13,7 @@ function PopupWrap(props: PopupWrapProps) {
         <>
             {
                 props.show 
-                    ? <div className='fixed top-0 left-0 w-full h-full flex justify-center items-center bg-black/70 p-2.5 z-50' onClick={e => {
-                        e.stopPropagation()
-                        props.callBack(false)
-                    }}>
+                    ? <div className='fixed top-0 left-0 w-full h-full flex justify-center items-center bg-black/70 p-2.5 z-50' onClick={e => props.callBack(false)}>
                         {props.children}
                     </div>
 

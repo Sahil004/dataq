@@ -8,11 +8,7 @@ function Search() {
   
   return (
     <>
-      <div className='flex items-center' onClick={() => {
-        startTransition(() => {
-          setFetch(true)
-        })
-      }}>
+      <div className='flex items-center' onClick={() => startTransition(() => {setFetch(true)})}>
           <SearchIcon />
           <div className='ml-6 hidden lg:block text-lg text-[#535353]'>
               Search for anything...

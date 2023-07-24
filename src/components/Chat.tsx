@@ -1,43 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import SendIcon from './icons/SendIcon'
+import { chatData } from '../utils/static';
 
 function Chat() {
     const [currMessage, setCurrMessage] = useState('')
-    const [chat, setChat] = useState([
-        {
-            date: '23-07-2023',
-            messages: [
-                {
-                    user: 'someuser',
-                    img: '/assets/other-user.png',
-                    message: ['some question']
-                },
-                {
-                    user: 'me',
-                    img: '/assets/user.png',
-                    message: ['yeah']
-                }
-            ]
-        },
-        {
-            date: 'today',
-            messages: [
-                {
-                    user: 'someuser',
-                    img: '/assets/other-user.png',
-                    message: ['some other important question']
-                },
-                {
-                    user: 'me',
-                    img: '/assets/user.png',
-                    message: ['reply']
-                }
-            ]
-        },
+    const [chat, setChat] = useState(chatData)
 
-    ])
-
-    const handleKeyDown = (event: React.KeyboardEvent<HTMLTextAreaElement>) => {
+    function handleKeyDown(event: React.KeyboardEvent<HTMLTextAreaElement>) {
         // Check if the Enter key is pressed (keyCode 13) and not holding Shift (event.shiftKey is false)
         if (event.keyCode === 13 && !event.shiftKey) {
           event.preventDefault(); // Prevent default behavior (adding a newline)
@@ -45,14 +14,14 @@ function Chat() {
         }
       };
     
-    const sendMessage = () => {
+    function sendMessage() {
         let temp = [...chat]
         temp[1].messages[1].message.push(currMessage)
         setChat(temp)
         setCurrMessage('')
     }
 
-    const resetScroll = () => {
+    function resetScroll() {
         let objDiv = document.getElementById("chat-wrap");
         let objDiv1 = document.getElementById("chat-wrap-1");
         if (objDiv) {

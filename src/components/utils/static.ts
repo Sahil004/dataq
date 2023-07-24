@@ -1,1 +1,0 @@
-export const dataSources = ['Atlan Dev', 'Atlan Prod']

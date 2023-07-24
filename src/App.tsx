@@ -3,32 +3,7 @@ import SQLCodeBlock from './components/SqlEditor';
 import Layout from './components/Layout';
 import Button from './components/Button';
 import 'react-data-grid/lib/styles.css';
-// import DataGrid from 'react-data-grid';
-
-const initList = [
-  {
-    name: 'Get Orders',
-    query: `SELECT * 
-FROM orders 
-WHERE AGE > 18;
-`,
-    loadFile: './json/orders.json'
-  },
-  {
-    name: 'Some Details',
-    query: `SELECT * 
-FROM some_details 
-WHERE AGE > 18;
-`,
-    loadFile: './json/products.json'
-  },
-
-  {
-    name: 'Custom Query',
-    query: `type your test query...`,
-    loadFile: './json/customers.json'
-  },
-]
+import { initList } from './utils/static';
 
 const DataGrid = lazy(() => import('react-data-grid'))
 
@@ -78,6 +53,11 @@ function App() {
       console.error('Error loading JSON data:', error);
     }
   };
+
+  function handleTabChange(e: React.ChangeEvent<HTMLSelectElement>) {
+    setSelectedTab(parseInt(e.target.value))
+    setData(null)
+  }
   
   return (
     <Layout>
@@ -87,10 +67,7 @@ function App() {
           <div className='flex p-6'>
             <label htmlFor="saved">
               <div className='mr-2.5'>saved quries</div>
-              <select id='saved' className='border border-primary px-2.5' value={selectedTab} onChange={(e) => {
-                setSelectedTab(parseInt(e.target.value))
-                setData(null)
-              }}>
+              <select id='saved' className='border border-primary px-2.5' value={selectedTab} onChange={handleTabChange}>
                 {
                   React.Children.toArray(
                     tabs.map((res, index) => <option value={index} >{res.name}</option>)
